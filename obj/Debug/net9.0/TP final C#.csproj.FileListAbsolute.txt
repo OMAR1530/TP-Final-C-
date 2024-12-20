@@ -1,0 +1,29 @@
+D:\Projet Ynov\B2\C#\TP final C#\obj\Debug\net9.0\TP final C#.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projet Ynov\B2\C#\TP final C#\obj\Debug\net9.0\TP final C#.AssemblyInfoInputs.cache
+D:\Projet Ynov\B2\C#\TP final C#\obj\Debug\net9.0\TP final C#.AssemblyInfo.cs
+D:\Projet Ynov\B2\C#\TP final C#\obj\Debug\net9.0\TP final C#.csproj.CoreCompileInputs.cache
+D:\Projet Ynov\B2\C#\TP final C#\obj\Debug\net9.0\TP final C#.sourcelink.json
+D:\Projet Ynov\B2\C#\TP final C#\bin\Debug\net9.0\TP final C#.exe
+D:\Projet Ynov\B2\C#\TP final C#\bin\Debug\net9.0\TP final C#.deps.json
+D:\Projet Ynov\B2\C#\TP final C#\bin\Debug\net9.0\TP final C#.runtimeconfig.json
+D:\Projet Ynov\B2\C#\TP final C#\bin\Debug\net9.0\TP final C#.dll
+D:\Projet Ynov\B2\C#\TP final C#\bin\Debug\net9.0\TP final C#.pdb
+D:\Projet Ynov\B2\C#\TP final C#\obj\Debug\net9.0\TP final C#.dll
+D:\Projet Ynov\B2\C#\TP final C#\obj\Debug\net9.0\refint\TP final C#.dll
+D:\Projet Ynov\B2\C#\TP final C#\obj\Debug\net9.0\TP final C#.pdb
+D:\Projet Ynov\B2\C#\TP final C#\obj\Debug\net9.0\TP final C#.genruntimeconfig.cache
+D:\Projet Ynov\B2\C#\TP final C#\obj\Debug\net9.0\ref\TP final C#.dll
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\bin\Debug\net9.0\TP final C#.exe
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\bin\Debug\net9.0\TP final C#.deps.json
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\bin\Debug\net9.0\TP final C#.runtimeconfig.json
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\bin\Debug\net9.0\TP final C#.dll
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\bin\Debug\net9.0\TP final C#.pdb
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\TP final C#.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\TP final C#.AssemblyInfoInputs.cache
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\TP final C#.AssemblyInfo.cs
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\TP final C#.csproj.CoreCompileInputs.cache
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\TP final C#.dll
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\refint\TP final C#.dll
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\TP final C#.pdb
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\TP final C#.genruntimeconfig.cache
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\ref\TP final C#.dll
