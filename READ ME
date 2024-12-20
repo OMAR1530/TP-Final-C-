@@ -1,0 +1,12 @@
+- Prerequisites
+      - NET SDK (Version 5.0 or later)
+      - A code editor like Visual Studio or Visual Studio Code
+
+- Installation
+      - Clone the repository or download the source code.
+      - Open the project in your preferred IDE.
+      - Build the project to ensure all dependencies are properly configured.
+
+- Running the Program
+      - Open a terminal or command prompt.
+      - Run the program using the following command: dotnet run : dotnet run .\Program.cs
