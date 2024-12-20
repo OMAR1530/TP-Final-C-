@@ -27,3 +27,4 @@ D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\refint\TP final C#.dll
 D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\TP final C#.pdb
 D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\TP final C#.genruntimeconfig.cache
 D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\ref\TP final C#.dll
+D:\Projet Ynov\B2\C#\TP\TP-Final-C-\obj\Debug\net9.0\TP final C#.sourcelink.json

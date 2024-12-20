@@ -1,13 +1,15 @@
 using System;
 using CarConstrutor;
 
+public class CarManager
+{
+    // Liste des voitures ajoutées à la flotte
+    private List<Car> cars = new List<Car>();
+    // Identifiant pour la prochaine voiture ajoutée
+    private int nextId = 1;
 
-    public class CarManager
-    {
-        private List<Car> cars = new List<Car>();
-        private int nextId = 1; 
-
-       private readonly Dictionary<string, List<string>> predefinedCars = new Dictionary<string, List<string>>
+    // Dictionnaire prédefini avec les marques et leurs modèles
+    private readonly Dictionary<string, List<string>> predefinedCars = new Dictionary<string, List<string>>
 {
     { "Toyota", new List<string> { "Corolla", "Camry", "Yaris", "RAV4", "Highlander", "Prius", "Land Cruiser" } },
     { "BMW", new List<string> { "X5", "X3", "3 Series", "5 Series", "7 Series", "M3", "M5" } },
@@ -25,129 +27,142 @@ using CarConstrutor;
     { "Volvo", new List<string> { "XC40", "XC60", "XC90", "S60", "S90", "V60", "V90" } },
     { "Jeep", new List<string> { "Wrangler", "Cherokee", "Grand Cherokee", "Renegade", "Compass", "Gladiator" } }
 };
-        public void AddCar()
+
+    // Méthode pour ajouter une nouvelle voiture à la flotte
+    public void AddCar()
+    {
+        Console.Clear();
+        Console.WriteLine("Choose a brand:");
+        int index = 1;
+        var brands = predefinedCars.Keys.ToList();  // Récupère la liste des marques
+        foreach (var brand in brands)
         {
-            Console.Clear();
-            Console.WriteLine("Choose a brand:");
-            int index = 1;
-            var brands = predefinedCars.Keys.ToList();
-            foreach (var brand in brands)
-            {
-                Console.WriteLine($"{index}. {brand}");
-                index++;
-            }
-
-            int brandChoice = GetUserChoice(1, brands.Count);
-            string chosenBrand = brands[brandChoice - 1];
-
-            Console.Clear();
-            Console.WriteLine($"Choose a model for {chosenBrand}:");
-            var models = predefinedCars[chosenBrand];
-            index = 1;
-            foreach (var model in models)
-            {
-                Console.WriteLine($"{index}. {model}");
-                index++;
-            }
-
-            int modelChoice = GetUserChoice(1, models.Count);
-            string chosenModel = models[modelChoice - 1];
-
-            Console.Clear();
-            int year = GetValidYear();
-            var newCar = new Car(nextId++, chosenBrand, chosenModel, year);
-            cars.Add(newCar);
-            Console.WriteLine("Car added successfully!");
+            Console.WriteLine($"{index}. {brand}");
+            index++;
         }
 
-        public void ListCars()
-        {
-            Console.Clear();
-            if (cars.Count == 0)
-            {
-                Console.WriteLine("No cars in the fleet.");
-                return;
-            }
+        // Sélection de la marque par l'utilisateur
+        int brandChoice = GetUserChoice(1, brands.Count);
+        string chosenBrand = brands[brandChoice - 1];
 
-            foreach (var car in cars)
-            {
-                car.DisplayInformation();
-            }
+        Console.Clear();
+        Console.WriteLine($"Choose a model for {chosenBrand}:");
+        var models = predefinedCars[chosenBrand];  // Récupère les modèles pour la marque choisie
+        index = 1;
+        foreach (var model in models)
+        {
+            Console.WriteLine($"{index}. {model}");
+            index++;
         }
 
-        public void RentCar(int id)
-        {
-            Console.Clear();
-            var car = cars.FirstOrDefault(c => c.Id == id);
-            if (car == null)
-            {
-                Console.WriteLine("Car not found.");
-                return;
-            }
+        // Sélection du modèle par l'utilisateur
+        int modelChoice = GetUserChoice(1, models.Count);
+        string chosenModel = models[modelChoice - 1];
 
-            if (car.IsRented)
-            {
-                Console.WriteLine("This car is already rented.");
-            }
-            else
-            {
-                car.IsRented = true;
-                Console.WriteLine("Car rented successfully!");
-            }
+        Console.Clear();
+        int year = GetValidYear();  // Récupère une année valide
+        var newCar = new Car(nextId++, chosenBrand, chosenModel, year);  // Crée la nouvelle voiture
+        cars.Add(newCar);  // Ajoute la voiture à la flotte
+        Console.WriteLine("Car added successfully!");
+    }
+
+    // Méthode pour afficher toutes les voitures de la flotte
+    public void ListCars()
+    {
+        Console.Clear();
+        if (cars.Count == 0)
+        {
+            Console.WriteLine("No cars in the fleet.");
+            return;
         }
 
-        public void ReturnCar(int id)
+        // Affiche les informations de chaque voiture
+        foreach (var car in cars)
         {
-            Console.Clear();
-            var car = cars.FirstOrDefault(c => c.Id == id);
-            if (car == null)
-            {
-                Console.WriteLine("Car not found.");
-                return;
-            }
-
-            if (!car.IsRented)
-            {
-                Console.WriteLine("This car is not rented.");
-            }
-            else
-            {
-                car.IsRented = false;
-                Console.WriteLine("Car returned successfully!");
-            }
-        }
-
-        private int GetUserChoice(int min, int max)
-        {
-            int choice;
-            do
-            {
-                Console.Write($"Enter your choice ({min}-{max}): ");
-            } while (!int.TryParse(Console.ReadLine(), out choice) || choice < min || choice > max);
-
-            return choice;
-        }
-
-        private int GetValidYear()
-        {
-            int year;
-            int currentYear = DateTime.Now.Year;
-
-            do
-            {
-                Console.Write($"Enter the year of manufacture (1900-{currentYear}): ");
-                string input = Console.ReadLine();
-
-                if (!int.TryParse(input, out year) || year < 1900 || year > currentYear)
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid year.");
-                }
-                else
-                {
-                    break;
-                }
-            } while (true);
-
-            return year;
+            car.DisplayInformation();
         }
     }
+
+    // Méthode pour louer une voiture en fonction de son ID
+    public void RentCar(int id)
+    {
+        Console.Clear();
+        var car = cars.FirstOrDefault(c => c.Id == id);  // Recherche la voiture par ID
+        if (car == null)
+        {
+            Console.WriteLine("Car not found.");
+            return;
+        }
+
+        // Vérifie si la voiture est déjà louée
+        if (car.IsRented)
+        {
+            Console.WriteLine("This car is already rented.");
+        }
+        else
+        {
+            car.IsRented = true;  // Loue la voiture
+            Console.WriteLine("Car rented successfully!");
+        }
+    }
+
+    // Méthode pour retourner une voiture en fonction de son ID
+    public void ReturnCar(int id)
+    {
+        Console.Clear();
+        var car = cars.FirstOrDefault(c => c.Id == id);  // Recherche la voiture par ID
+        if (car == null)
+        {
+            Console.WriteLine("Car not found.");
+            return;
+        }
+
+        // Vérifie si la voiture est louée avant de la retourner
+        if (!car.IsRented)
+        {
+            Console.WriteLine("This car is not rented.");
+        }
+        else
+        {
+            car.IsRented = false;  // Marque la voiture comme retournée
+            Console.WriteLine("Car returned successfully!");
+        }
+    }
+
+    // Méthode pour obtenir le choix de l'utilisateur avec des limites spécifiées
+    private int GetUserChoice(int min, int max)
+    {
+        int choice;
+        do
+        {
+            Console.Write($"Enter your choice ({min}-{max}): ");
+        } while (!int.TryParse(Console.ReadLine(), out choice) || choice < min || choice > max);
+
+        return choice;
+    }
+
+    // Méthode pour obtenir une année valide de fabrication
+    private int GetValidYear()
+    {
+        int year;
+        int currentYear = DateTime.Now.Year;
+
+        do
+        {
+            Console.Write($"Enter the year of manufacture (1900-{currentYear}): ");
+            string input = Console.ReadLine();
+
+            // Vérifie que l'année est valide
+            if (!int.TryParse(input, out year) || year < 1900 || year > currentYear)
+            {
+                Console.WriteLine("Invalid input. Please enter a valid year.");
+            }
+            else
+            {
+                break;
+            }
+        } while (true);
+
+        return year;
+    }
+}
